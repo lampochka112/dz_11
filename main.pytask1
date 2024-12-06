@@ -1,0 +1,63 @@
+#include "pch.h"
+#include "iostream"
+#include "tchar.h"
+#include "stdio.h"
+#include "stdlib.h"
+#include"math.h"
+
+using namespace std;
+
+int main()
+{
+    setlocale(LC_CTYPE, "rus");
+    int a, b, t;
+    do
+    {
+        cout << "Введите длину = ";
+        cin >> a;
+        cout << "ширину ";
+        cin >> b;
+        cout << "Введите один или 2 ";
+        cin >> t;
+        float k;
+        k = b / a;
+        for (int yy = 0; yy <= a; yy++)
+        {
+            cout << "\n";
+            for (int xx = 0; xx <= b; xx++)
+            {
+                int x = xx - (int)(a / 2);
+                int y = -1 * (yy - (int)(b / 2));
+                switch (t)
+                {
+                    case 1:
+                        y < x / k ? cout << "*" : cout << " ";
+                        break;
+                    case 2:
+                        y >= x / k ? cout << "*" : cout << " ";
+                        break;
+                    case 3:
+                        (- 1 * y) >= x / (k*-1) ? cout << "*" : cout << " ";
+                        break;
+                    case 4:
+                        (- 1 * y) <= x / (k*-1) ? cout << "*" : cout << " ";
+                        break;
+                    case 5:
+                        - abs(y) > -abs(x / k) ? cout << "*" : cout << " ";
+                        break;
+                    case 6:
+                        abs(y) > abs(x / k) ? cout << "*" : cout << " ";
+                        break;
+                    case 7:
+                        (y) > abs(x / k) ? cout << "*" : cout << " ";
+                        break;
+                    case 8:
+                        - 1*y >( abs(x / k)) ? cout << "*" : cout << " ";
+                        break;
+                    default:
+                        cout << "Не верный выбор";
+                }
+            }
+        }
+    } while (!(t >= 1 && t <= 8));
+    system("pause");
